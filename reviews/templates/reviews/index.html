@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+{% load static %}
+<html>
+    <head>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <title> review </title>
+        <meta name="description" content="">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="{% static "reviews/index.css" %}">
+    </head>
+    <body>
+      
+        <form action='/' method='POST' enctype="multipart/form-data">
+            {% csrf_token %}
+
+            {% for field in form %}
+                <div >
+                    {{field.label}}
+                    {{field}}
+                    {{field.errors}}
+                </div>
+            {%endfor%}
+
+            <button type="submit">Send</button>
+        </form>
+    </body>
+</html>
